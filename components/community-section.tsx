@@ -48,7 +48,7 @@ export function CommunitySection() {
           asChild
         >
           <a 
-            href="https://chat.whatsapp.com/example" 
+            href="https://chat.whatsapp.com/JHKHVy3W6OZ1DJayo55pUF?mode=gi_t"
             target="_blank" 
             rel="noopener noreferrer"
           >

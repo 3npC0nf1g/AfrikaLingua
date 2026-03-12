@@ -1,6 +1,7 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import { useSearchParams } from "next/navigation"
 import { ChevronRight, Globe, MapPin, Languages, BookOpen, Users, Sparkles, Mic, Bot, Volume2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -25,8 +26,17 @@ const cameroonLanguages = [
 ]
 
 export default function HomePage() {
+  const searchParams = useSearchParams()
   const [step, setStep] = useState<"welcome" | "country" | "language">("welcome")
   const [selectedCountry, setSelectedCountry] = useState<string | null>(null)
+
+  useEffect(() => {
+    const country = searchParams.get("country")
+    if (country === "cameroun") {
+      setSelectedCountry("cameroon")
+      setStep("language")
+    }
+  }, [searchParams])
 
   const handleCountrySelect = (countryId: string) => {
     if (countryId === "cameroon") {
@@ -74,7 +84,7 @@ export default function HomePage() {
               <span>Plus de 2000 langues africaines</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4 text-balance">
-              Apprenez les langues <br />
+              Apprenons les langues <br />
               <span className="text-primary">africaines</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8 text-pretty">
@@ -262,7 +272,12 @@ export default function HomePage() {
         <main className="container mx-auto px-4 py-8">
           <div className="max-w-3xl mx-auto">
             <div className="flex items-center gap-2 text-sm text-muted-foreground mb-6">
-              <span>Afrique</span>
+              <button 
+                onClick={() => setStep("country")}
+                className="hover:text-foreground transition-colors"
+              >
+                Afrique
+              </button>
               <ChevronRight className="w-4 h-4" />
               <span className="text-foreground font-medium">Cameroun</span>
             </div>

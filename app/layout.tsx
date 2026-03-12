@@ -14,9 +14,9 @@ const nunitoSans = Nunito_Sans({
 });
 
 export const metadata: Metadata = {
-  title: 'YembaLearn - Apprends le Yemba',
-  description: 'Application d\'apprentissage de la langue Yemba du Cameroun',
-  generator: 'v0.app',
+  title: 'AfriLingua - Apprenons les langues Africaines',
+  description: 'Application d\'apprentissage des langues Africaines',
+  generator: '',
   icons: {
     icon: [
       {
